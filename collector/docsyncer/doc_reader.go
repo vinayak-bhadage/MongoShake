@@ -61,7 +61,7 @@ func NewDocumentSplitter(src, sslRootCaFile string, ns utils.NS) *DocumentSplitt
 	ds.pieceByteSize = uint64(res.Size / float64(conf.Options.FullSyncReaderParallelThread))
 	if ds.pieceByteSize > 8*utils.GB {
 		// at most 8GB per chunk
-		ds.pieceByteSize = 8 * utils.GB
+		ds.pieceByteSize = 1 * utils.GB
 	}
 
 	LOG.Info("NewDocumentSplitter db[%v] col[%v] res[%v], pieceByteSize[%v]",
